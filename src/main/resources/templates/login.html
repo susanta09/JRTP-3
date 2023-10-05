@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4">
+			<h1>Login Form</h1>
+			<h4 th:text="${msgW}" style="color: orange;"></h4>
+			<h4 th:text="${msgR}" style="color: red;"></h4>
+				<form th:action="@{/log}" th:object="${request}" method="post">
+					<div class="form-group row">
+						<label  class="col-sm-3 col-form-label">Email Id:</label>
+						<div class="col-sm-9">
+							<input th:field="*{email}" class="form-control" id="email" required="required">
+							<input type="hidden" th:field="*{status}">
+						</div>
+					</div>
+					<br>
+					<div class="form-group row">
+						<label  class="col-sm-3 col-form-label">Password:</label>
+						<div class="col-sm-9">
+							<input th:field="*{password}" class="form-control" id="tPassword" required="required">
+							<span id="espan" style="color: red;"></span>
+						</div>
+					</div><br>
+					<div>
+						<button class="btn btn-primary" type="submit" id="sub">Submit</button>
+					</div>
+					<div>
+					<label  class="col-sm-3 col-form-label"></label>
+					<div>
+						<a th:href="@{/forgotPassForm}" class="btn btn-warning" style="margin-right: 8px">Forgot Password</a>
+						<a th:href="@{/reg}" class="btn btn-info" >Sing Up</a>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-sm-4"></div>
+		</div>
+	</div>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+</body>
+</html>
